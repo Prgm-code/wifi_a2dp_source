@@ -83,3 +83,12 @@ menu "A2DP Example Configuration"
         help
             Use this option to set target device name to connect.
 endmenu
+
+menu "Radio Configuration"
+    config EXAMPLE_RADIO_URL
+        string "Radio Station URL"
+        default "http://icecast.omroep.nl/3fm-bb-mp3"
+        help
+            The URL of the internet radio station to stream.
+
+endmenu

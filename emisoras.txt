@@ -1,0 +1,8 @@
+Lista de emisoras de radio probadas.
+
+static const radio_station_t radio_stations[] = {
+    {"TechnoBase.FM", "https://listener1.mp3.tb-group.fm/tb.mp3", "Electronic Music"},
+    {"90s90s Trance", "https://regiocast.streamabc.net/regc-90s90strance-mp3-128-1556296?sABC=68q776p2%230%2349123n6804sro150n10n5rsq0s95o356%23&aw_0_1st.playerid=&amsparams=playerid:;skey:1758951106", "90s Trance Radio"},
+    {"SomaFM Drone Zone", "https://ice1.somafm.com/dronezone-128-mp3", "Ambient Music"},
+    {"Hirschmilch Chillout", "http://hirschmilch.de:7000/chillout.mp3", "Chillout Radio"}
+};
