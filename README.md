@@ -20,15 +20,16 @@ Ejecuta el siguiente comando para abrir el menú de configuración:
 
 ```bash
 idf.py menuconfig
+source ~/esp/esp-idf/export.sh && idf.py menuconfig
 ```
 
 En el menú, puedes configurar las credenciales de Wi-Fi y el nombre del dispositivo Bluetooth.
 
--   `(Top)` -> `Example Configuration`
-    -   `WiFi SSID`: El SSID de tu red Wi-Fi.
-    -   `WiFi Password`: La contraseña de tu red Wi-Fi.
--   `(Top)` -> `A2DP Example Configuration`
-    -   `Target Device Name`: El nombre del dispositivo Bluetooth al que te quieres conectar (por ejemplo, un altavoz).
+- `(Top)` -> `Example Configuration`
+  - `WiFi SSID`: El SSID de tu red Wi-Fi.
+  - `WiFi Password`: La contraseña de tu red Wi-Fi.
+- `(Top)` -> `A2DP Example Configuration`
+  - `Target Device Name`: El nombre del dispositivo Bluetooth al que te quieres conectar (por ejemplo, un altavoz).
 
 Guarda la configuración y sal del menú.
 

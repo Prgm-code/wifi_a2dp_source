@@ -1,4 +1,5 @@
 # Archivos de compilacion de ESP-IDF
+build/
 /build/
 
 # Archivo de configuracion local
