@@ -1,60 +1,75 @@
-# Proyecto ESP32 Wi-Fi A2DP Source
+# Proyecto ESP32 Wi-Fi y Bluetooth A2DP
 
-Este proyecto es una combinación de un ejemplo de estación Wi-Fi y un ejemplo de A2DP Source para el ESP32.
+Este proyecto para el microcontrolador ESP32 combina conectividad Wi-Fi con el perfil de Bluetooth A2DP (Advanced Audio Distribution Profile). Permite que el ESP32 se conecte a una red Wi-Fi y, al mismo tiempo, transmita audio a un altavoz o auriculares Bluetooth.
 
-## Configuración y Compilación
+Este código es una fusión de los ejemplos `station` y `a2dp_source` del ESP-IDF.
 
-Sigue estos pasos para configurar y compilar el proyecto.
+## Características
 
-### 1. Limpiar el Proyecto
+*   Conexión a una red Wi-Fi (WPA2/WPA3).
+*   Escaneo y conexión a un dispositivo de audio Bluetooth A2DP (altavoz, auriculares, etc.).
+*   Transmisión de un tono de audio de prueba al dispositivo Bluetooth conectado.
 
-Ejecuta el siguiente comando para eliminar la configuración y los archivos de compilación antiguos:
+## Requisitos Previos
+
+*   Tener instalado el framework [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) de Espressif.
+*   Una placa de desarrollo ESP32.
+*   Un altavoz o auriculares Bluetooth.
+
+## Cómo Empezar
+
+### 1. Clonar el Repositorio
 
 ```bash
-idf.py fullclean
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
 ```
 
 ### 2. Configurar el Proyecto
 
-Ejecuta el siguiente comando para abrir el menú de configuración:
+Abre el menú de configuración del proyecto:
 
 ```bash
 idf.py menuconfig
-source ~/esp/esp-idf/export.sh && idf.py menuconfig
 ```
 
-En el menú, puedes configurar las credenciales de Wi-Fi y el nombre del dispositivo Bluetooth.
+En el menú, debes configurar las siguientes opciones:
 
-- `(Top)` -> `Example Configuration`
-  - `WiFi SSID`: El SSID de tu red Wi-Fi.
-  - `WiFi Password`: La contraseña de tu red Wi-Fi.
-- `(Top)` -> `A2DP Example Configuration`
-  - `Target Device Name`: El nombre del dispositivo Bluetooth al que te quieres conectar (por ejemplo, un altavoz).
+*   **Configuración Wi-Fi:**
+    *   Ve a `Example Configuration` > `WiFi SSID` e introduce el nombre de tu red Wi-Fi.
+    *   Ve a `Example Configuration` > `WiFi Password` e introduce la contraseña.
+
+*   **Configuración Bluetooth:**
+    *   Ve a `A2DP Example Configuration` > `Target Device Name` e introduce el nombre de tu dispositivo Bluetooth.
+
+*   **Tabla de Particiones (Importante):**
+    *   Este proyecto es grande y requiere una tabla de particiones que asigne más espacio a la aplicación.
+    *   En el menú, ve a `Partition Table` y selecciona la opción `( ) Custom partition table CSV`.
+    *   Asegúrate de que el campo `Custom partition CSV file` tenga el valor `partitions.csv`. El proyecto ya incluye este archivo.
 
 Guarda la configuración y sal del menú.
 
-### 3. Compilar el Proyecto
+### 3. Compilar y Flashear
 
-Finalmente, compila el proyecto con el siguiente comando:
+Compila el proyecto y súbelo a tu placa ESP32. **Recuerda reemplazar `/dev/ttyUSB0` con el puerto serie de tu placa.**
 
 ```bash
 idf.py build
-```
-
-### 4. Flashear el Dispositivo
-
-Una vez que la compilación sea exitosa, puedes flashear el firmware a tu dispositivo ESP32:
-
-```bash
 idf.py -p /dev/ttyUSB0 flash
 ```
 
-**Nota:** Reemplaza `/dev/ttyUSB0` con el puerto serie de tu dispositivo.
+### 4. Monitorear la Salida
 
-### 5. Monitorear la Salida
-
-Para ver los logs del dispositivo, usa el monitor serie:
+Puedes ver los mensajes de estado de la conexión Wi-Fi y Bluetooth a través del monitor serie:
 
 ```bash
 idf.py -p /dev/ttyUSB0 monitor
 ```
+
+## Contribuciones
+
+¡Las contribuciones son bienvenidas! Si tienes alguna idea o mejora, no dudes en abrir un *Pull Request*.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
