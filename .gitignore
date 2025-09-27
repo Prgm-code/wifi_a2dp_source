@@ -1,0 +1,18 @@
+# Archivos de compilacion de ESP-IDF
+/build/
+
+# Archivo de configuracion local
+# Este archivo puede contener informacion sensible y es generado localmente.
+/sdkconfig
+/sdkconfig.old
+
+# Archivos binarios generados
+*.bin
+*.elf
+*.map
+
+# Archivo de dependencias
+dependencies.lock
+
+# Configuracion del IDE
+/.vscode/
